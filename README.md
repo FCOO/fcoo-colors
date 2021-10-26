@@ -61,18 +61,6 @@ http://FCOO.github.io/fcoo-colors/demo/
 
     window.fcoo.color.getColorList( sorted, gradient )  //Return the [sorted] list of colors for gradient.
 
-### options
-| Id | Type | Default | Description |
-| :--: | :--: | :-----: | --- |
-| options1 | boolean | true | If <code>true</code> the ... |
-| options2 | string | null | Contain the ... |
-
-### Methods
-
-    .methods1( arg1, arg2,...): Do something
-    .methods2( arg1, arg2,...): Do something else
-
-
 
 ## Copyright and License
 This plugin is licensed under the [MIT license](https://github.com/FCOO/fcoo-colors/LICENSE).
@@ -83,5 +71,3 @@ Copyright (c) 2021 [FCOO](https://github.com/FCOO)
 
 Niels Holt nho@fcoo.dk
 
-
-## Credits and acknowledgements
