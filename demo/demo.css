@@ -1,0 +1,26 @@
+/*
+Demo for fcoo-colors
+*/
+/***********************************************
+	fcoo-colors-mixin.scss,
+
+	(c) 2021, FCOO
+
+	https://github.com/FCOO/fcoo-colors
+	https://github.com/FCOO
+
+
+************************************************/
+.color-pink {
+  background-color: #ED4795;
+}
+
+.color-blue-3 {
+  background-color: #34B3E4;
+}
+
+.color-yellow-8 {
+  background-color: #8B6700;
+}
+
+/*# sourceMappingURL=demo.css.map */

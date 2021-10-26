@@ -1,0 +1,20 @@
+/*
+Demo for fcoo-colors
+*/
+
+
+@import "../src/fcoo-colors-mixin";
+
+
+.color-pink {
+    background-color: fc-get-color($fc-pink);
+}
+
+.color-blue-3 {
+    background-color: fc-get-color($fc-blue, 3);
+}
+
+.color-yellow-8 {
+    background-color: fc-get-color($fc-yellow, 8);
+}
+

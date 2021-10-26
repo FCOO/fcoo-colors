@@ -1,0 +1,32 @@
+{
+  "name": "fcoo-colors",
+  "version": "1.0.0",
+  "homepage": "https://github.com/FCOO/fcoo-colors",
+  "authors": [
+    "Niels Holt"
+  ],
+  "description": "",
+  "main": [
+    "dist/fcoo-colors.js",
+    "dist/fcoo-colors.css"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/FCOO/fcoo-colors.git"
+  },
+  "dependencies": {},
+  "devDependencies": {
+    "sass-color-helpers": "latest"
+  },
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "moduleType": [
+    "es6"
+  ]
+}

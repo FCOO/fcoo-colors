@@ -1,0 +1,64 @@
+/***********************************************
+	fcoo-colors-mixin.scss,
+
+	(c) 2021, FCOO
+
+	https://github.com/FCOO/fcoo-colors
+	https://github.com/FCOO
+
+
+************************************************/
+
+
+
+//Include color-helper
+@import "../bower_components/sass-color-helpers/stylesheets/color-helpers";
+
+
+//All SCSS-variables are prefixed $fc- (fcoo-color)
+
+//Variables for the the nine colors
+$fc-blue    : 0;
+$fc-purple  : 1;
+$fc-red     : 2;
+$fc-orange  : 3;
+$fc-cyan    : 4;
+$fc-yellow  : 5;
+$fc-pink    : 6;
+$fc-green   : 7;
+$fc-gray    : 8;
+
+
+//$fc-default-gradient = standard gradient to be used
+$fc-default-gradient: 4 !default;
+
+
+
+//$fc-color-array:
+
+$fc-color-array: (
+    //0:Blue    1:Purple   2:Red     3:Orange   4:Cyan     5:Yellow   6:Pink     7:Green    8:Gray
+    (#CFEDFB    #EBE4FF    #FFE0DA   #FFE7BB    #D2ECEB    #FFF2B6    #FFDFF2    #E0F4BE    #E6E9EC),
+    (#9BDAF3    #D8CCF4    #FAC2BB   #F8CD94    #9EDDDD    #FBE491    #FFC4E4    #C7E59A    #D0D3D6),
+    (#68C7EC    #BFABE6    #F59890   #F7B26A    #69CDCF    #F7D56B    #F99ACA    #AED677    #B6B9BC),
+    (#34B3E4    #A589D9    #F16D64   #F59640    #35BEC1    #F3C746    #F371AF    #95C753    #A0A3A6),
+    (#00A0DC    #8C68CB    #EC4339   #F47B16    #00AEB3    #EFB920    #ED4795    #7CB82F    #86898C),
+    (#008CC9    #7C5BBB    #DD2E1F   #EC640C    #009EA5    #E6A700    #E2247F    #60AA14    #737679),
+    (#0077B5    #6A4BA7    #C11F1D   #CD5308    #008891    #CA9400    #C9186E    #4E8F13    #595C5F),
+    (#005E93    #573B93    #A40F1C   #AF4104    #00727D    #AA7D00    #B10C5C    #3B7511    #434649),
+    (#004471    #452B7F    #88001A   #903000    #005C69    #8B6700    #870044    #295A10    #303336)
+);
+
+
+@function fc-get-color-list($gradient: $fc-default-gradient) {
+    @return nth( $fc-color-array, $gradient + 1);
+}
+
+
+@function fc-get-color($color, $gradient: $fc-default-gradient) {
+    @return nth( fc-get-color-list( $gradient ), $color + 1 );
+}
+
+@function fc-get-delta-color($color, $delta-gradient: 0) {
+    @return fc-get-color( $color, $fc-default-gradient + $delta-gradient );
+}
