@@ -36,18 +36,19 @@
     nsColor.defaultOrder    = ["blue", "red", "green", "yellow", "gray", "purple", "pink", "cyan", "orange"];
 
 
-    nsColor.getColor = function(color, gradient){
+    nsColor.getColor = function(color, gradient, fromSortedList){
         var colorIndex = typeof color == 'string' ? colorName2Index.indexOf(color) : color;
-        return nsColor.getColorList(false, gradient)[colorIndex];
+        return nsColor.getColorList(fromSortedList, gradient)[colorIndex];
     };
 
 
-    nsColor.getDeltaColor = function(color, deltaGradient = 0){
-        return nsColor.getColor(color, nsColor.defaultGradient + deltaGradient);
+    nsColor.getDeltaColor = function(color, deltaGradient = 0, fromSortedList){
+        return nsColor.getColor(color, nsColor.defaultGradient + deltaGradient, fromSortedList);
     };
 
 
-    nsColor.getColorList = function( sorted, gradient ){
+    nsColor.getColorList = function( sorted, gradient = 'DEFAULT' ){
+        gradient = gradient == 'DEFAULT' ? nsColor.defaultGradient : gradient;
         var result = [];
         if (sorted){
             $.each(nsColor.defaultOrder, function(dummy, color){
@@ -55,7 +56,7 @@
             });
         }
         else
-            result = nsColor.nsColorArray[gradient];
+            result = nsColor.colorArray[gradient];
         return result;
     };
 
