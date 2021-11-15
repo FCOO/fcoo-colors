@@ -1,5 +1,5 @@
 # fcoo-colors
-> JS and SCSS for colors used in FCOOs web-applications when displaying information in charts, maps, tables etc.  
+> JS and SCSS for colors used in FCOOs web-applications when displaying information in charts, maps, tables etc.
 ## Description
 
 The colors used to display information in charts, maps, tables in FCOO web applications are the  [Linkedin Color Palettes for Screen](linkedin-palette-screen.pdf). Read more at [Linkedin's homepage](https://brand.linkedin.com/content/brand/global/en_us/index/visual-identity/color-palettes)
@@ -16,7 +16,7 @@ A `colorList` is and array of the nine colors in a specific gradient. Eq. `color
 This packages contains JS and SCSS variables defining the different colors and a default order (`window.fcoo.color.defaultOrder = []STRING`) of colors to be used to select colors from
 
      window.fcoo.color.defaultOrder  = ["blue", "red", "green", "yellow", "gray",  "purple", "pink", "cyan", "orange"]
-    
+
 To include the variables and functions in a SCSS-file add
 
     @import "../bower-components/fcoo-colors/src/fcoo-colors-mixin";
@@ -49,15 +49,22 @@ http://FCOO.github.io/fcoo-colors/demo/
 ### In JS-files
 
     window.fcoo.color   //Namespace
-    
+
     window.fcoo.color.defaultGradient   // = 4;
     window.fcoo.color.defaultOrder      // = ["blue", "red", "green", "yellow", "gray", "purple", "pink", "cyan", "orange"];
 
-    window.fcoo.color.getColor("blue")
+    window.fcoo.color.getColor("blue")  //Return "#123456"
     window.fcoo.color.getColor(2); //Same as getColor("green")
 
+    window.fcoo.color.getColorRGB("blue")   //Return {red:NUMBER, green:NUMBER, blue:NUMBER, alpha:NUMBER}
+    window.fcoo.color.getColorRGBArray("blue")   //Return [red, green, blue, alpha]
 
-    window.fcoo.color.getDeltaColor("blue", 3); //Return "blue" 3 gradiants darker that the default gradiant 
+
+    window.fcoo.color.getDeltaColor("blue", 3); //Return "blue" 3 gradiants darker that the default gradiant
+
+    window.fcoo.color.getDeltaColorRGB(...)     //As getDeltaColor but returns {red:..., green:..., blue:..., alpha:...}
+    window.fcoo.color.getDeltaColorRGBArray(..) //As getDeltaColor but returns []
+
 
     window.fcoo.color.getColorList( sorted, gradient )  //Return the [sorted] list of colors for gradient.
 

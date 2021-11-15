@@ -42,8 +42,26 @@
     };
 
 
+    nsColor.getColorRGB =  function(/*color, gradient, fromSortedList*/){
+        return window.hexRgb( nsColor.getColor.apply(null, arguments) );
+    };
+
+    nsColor.getColorRGBArray =  function(/*color, gradient, fromSortedList*/){
+        return window.hexRgb( nsColor.getColor.apply(null, arguments), {format: 'array'} );
+    };
+
+
     nsColor.getDeltaColor = function(color, deltaGradient = 0, fromSortedList){
         return nsColor.getColor(color, nsColor.defaultGradient + deltaGradient, fromSortedList);
+    };
+
+
+    nsColor.getDeltaColorRGB = function(/*color, deltaGradient = 0, fromSortedList*/){
+        return window.hexRgb( nsColor.getDeltaColor.apply(null, arguments) );
+    };
+
+    nsColor.getDeltaColorRGBArray =  function(/*color, deltaGradient = 0, fromSortedList*/){
+        return window.hexRgb( nsColor.getDeltaColor.apply(null, arguments), {format: 'array'} );
     };
 
 
