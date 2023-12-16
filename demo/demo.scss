@@ -2,8 +2,7 @@
 Demo for fcoo-colors
 */
 
-
-
+//COLOR-HELPER
 @import "../bower_components/sass-color-helpers/stylesheets/color-helpers";
 
 //LEAFLET-BOOTSTRAP-MARKER-MIXIN - mixin to create colors for marker (bsMarker)
@@ -14,8 +13,7 @@ Demo for fcoo-colors
 
 
 //FCOO-COLORS-VARIABLES and FCOO-COLORS-MIXIN
-@import "../src/fcoo-colors-variables";
-@import "../src/fcoo-colors-mixin";
+@import "../src/fcoo-colors-include";
 
 
 
