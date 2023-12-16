@@ -1,6 +1,14 @@
-/*
-Demo for fcoo-colors
-*/
+@charset "UTF-8";
+/***********************************************
+    fcoo-colors.scss,
+
+    (c) 2023, FCOO
+
+    https://github.com/fcoo/fcoo-colors
+    https://github.com/fcoo
+
+
+************************************************/
 /***********************************************************************
 
 leaflet-bootstrap-marker-mixin.scss
@@ -45,6 +53,12 @@ The color scheme is from LinkedIn and shown in linkedin-palette-screen.pdf
 Color for time = tree colors for the past, now, and the future
 **********************************************************/
 /**********************************************************
+Application color
+Defaults is = DALO color in "Forsvarsministeriets koncernfælles Designmanual 2018"
+Can be changed by mixin application-base-color( new-color )
+in src/_fcoo-color-mixin.scss
+**********************************************************/
+/**********************************************************
     fcoo-colors-mixin.scss
 
 	https://github.com/FCOO/fcoo-colors
@@ -58,21 +72,64 @@ Functions to get colors in different (relative) gradients
 marker-and-polygon-color
 create color-classes for bsMarker and bsPolyline
 **********************************************************/
-.color-pink {
-  background-color: #ED4795;
+/**********************************************************
+Application color
+Defaults is = DALO color in "Forsvarsministeriets koncernfælles Designmanual 2018"
+Can be changed by mixin application-base-color( new-color )
+**********************************************************/
+/**********************************************************
+Color for time = tree colors for the past, now, and the future
+**********************************************************/
+:root {
+  --fc-time-past-color: #EADCC1;
+  --fc-time-past-text-color: #000;
+  --fc-time-now-color: #3B7511;
+  --fc-time-now-text-color: #fff;
+  --fc-time-future-color: #94B5C2;
+  --fc-time-future-text-color: #000;
 }
 
-.color-blue-3 {
-  background-color: #34B3E4;
+.time-past-text-color {
+  color: var(--fc-time-past-text-color);
 }
 
-.color-yellow-8 {
-  background-color: #8B6700;
+.time-past-color {
+  background-color: var(--fc-time-past-color);
 }
 
-.test-time-past {
-  color: var(--fc-time-past-color);
-  background-color: var(--fc-time-past-bg-color);
+.time-now-text-color {
+  color: var(--fc-time-now-text-color);
 }
 
-/*# sourceMappingURL=demo.css.map */
+.time-now-color {
+  background-color: var(--fc-time-now-color);
+}
+
+.time-future-text-color {
+  color: var(--fc-time-future-text-color);
+}
+
+.time-future-color {
+  background-color: var(--fc-time-future-color);
+}
+
+/**********************************************************
+Application color
+Defaults is = DALO color in "Forsvarsministeriets koncernfælles Designmanual 2018"
+Can be changed by mixin application-base-color( new-color )
+in src/_fcoo-color-mixin.scss
+**********************************************************/
+:root {
+  --_fcoo-default-app-base-color: #3f5b58;
+  --fcoo-app-base-color: var(--_fcoo-app-base-color, var(--_fcoo-default-app-base-color));
+  --_fcoo-default-app-base-text-color: #ffffff;
+  --fcoo-app-base-text-color: var(--_fcoo-app-base-text-color, var(--_fcoo-default-app-base-text-color));
+}
+
+.fcoo-app-base-text-color {
+  color: var(--fcoo-app-base-text-color);
+}
+
+.fcoo-app-base-color {
+  background-color: var(--fcoo-app-base-color);
+}

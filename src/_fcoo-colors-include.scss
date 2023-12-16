@@ -1,9 +1,16 @@
-/*
-Demo for fcoo-colors
-*/
+/**********************************************************
+	fcoo-colors-include.scss,
+
+	https://github.com/FCOO/fcoo-colors
+	https://github.com/FCOO
 
 
+    Contain all include for a packages using
+    the scss-variables and scss-mixins of fcoo-colors
 
+**********************************************************/
+
+//COLOR-HELPER
 @import "../bower_components/sass-color-helpers/stylesheets/color-helpers";
 
 //LEAFLET-BOOTSTRAP-MARKER-MIXIN - mixin to create colors for marker (bsMarker)
@@ -14,21 +21,5 @@ Demo for fcoo-colors
 
 
 //FCOO-COLORS-VARIABLES and FCOO-COLORS-MIXIN
-@import "../src/fcoo-colors-variables";
-@import "../src/fcoo-colors-mixin";
-
-
-
-
-.color-pink {
-    background-color: fc-get-color($fc-pink);
-}
-
-.color-blue-3 {
-    background-color: fc-get-color($fc-blue, 3);
-}
-
-.color-yellow-8 {
-    background-color: fc-get-color($fc-yellow, 8);
-}
-
+@import "../bower_components/fcoo-colors/src/fcoo-colors-variables";
+@import "../bower_components/fcoo-colors/src/fcoo-colors-mixin";

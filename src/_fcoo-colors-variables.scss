@@ -1,0 +1,95 @@
+/**********************************************************
+	fcoo-colors-variables.scss,
+
+	https://github.com/FCOO/fcoo-colors
+	https://github.com/FCOO
+**********************************************************/
+
+/**********************************************************
+The color scheme is from LinkedIn and shown in linkedin-palette-screen.pdf
+**********************************************************/
+
+//All SCSS-variables are prefixed $fc- (fcoo-color)
+
+//Variables for the the nine colors
+$fc-blue    : 0;
+$fc-purple  : 1;
+$fc-red     : 2;
+$fc-orange  : 3;
+$fc-cyan    : 4;
+$fc-yellow  : 5;
+$fc-pink    : 6;
+$fc-green   : 7;
+$fc-gray    : 8;
+
+
+$fc-color-list: ($fc-blue $fc-purple $fc-red $fc-orange $fc-cyan $fc-yellow $fc-pink $fc-green $fc-gray);
+
+//$fc-default-gradient = standard gradient to be used
+$fc-default-gradient: 4 !default;
+
+
+//$fc-color-array = [gradiant][color]. Eg. colorArray[3, 4] = gradiant 3 of orange
+$fc-color-array: (
+    //0:Blue    1:Purple   2:Red     3:Orange   4:Cyan     5:Yellow   6:Pink     7:Green    8:Gray
+    (#CFEDFB    #EBE4FF    #FFE0DA   #FFE7BB    #D2ECEB    #FFF2B6    #FFDFF2    #E0F4BE    #E6E9EC),
+    (#9BDAF3    #D8CCF4    #FAC2BB   #F8CD94    #9EDDDD    #FBE491    #FFC4E4    #C7E59A    #D0D3D6),
+    (#68C7EC    #BFABE6    #F59890   #F7B26A    #69CDCF    #F7D56B    #F99ACA    #AED677    #B6B9BC),
+    (#34B3E4    #A589D9    #F16D64   #F59640    #35BEC1    #F3C746    #F371AF    #95C753    #A0A3A6),
+    (#00A0DC    #8C68CB    #EC4339   #F47B16    #00AEB3    #EFB920    #ED4795    #7CB82F    #86898C),
+    (#008CC9    #7C5BBB    #DD2E1F   #EC640C    #009EA5    #E6A700    #E2247F    #60AA14    #737679),
+    (#0077B5    #6A4BA7    #C11F1D   #CD5308    #008891    #CA9400    #C9186E    #4E8F13    #595C5F),
+    (#005E93    #573B93    #A40F1C   #AF4104    #00727D    #AA7D00    #B10C5C    #3B7511    #434649),
+    (#004471    #452B7F    #88001A   #903000    #005C69    #8B6700    #870044    #295A10    #303336)
+);
+
+
+/**********************************************************
+Color for time = tree colors for the past, now, and the future
+**********************************************************/
+$time-past-color-value       : #EADCC1;
+$time-past-text-color-value  : ch-best-color-contrast($base: $time-past-color-value, $colors: (#fff, #000), $tolerance: 0);
+
+$time-now-color-value        : #3B7511;
+$time-now-text-color-value   : ch-best-color-contrast($base: $time-now-color-value, $colors: (#fff, #000), $tolerance: 0);
+
+$time-future-color-value     : #94B5C2;
+$time-future-text-color-value: ch-best-color-contrast($base: $time-future-color-value, $colors: (#fff, #000), $tolerance: 0);
+
+
+//Internal scss-var with the name of the css-var
+$_time-past-color-var       : --fc-time-past-color;
+$_time-past-text-color-var  : --fc-time-past-text-color;
+
+$_time-now-color-var        : --fc-time-now-color;
+$_time-now-text-color-var   : --fc-time-now-text-color;
+
+$_time-future-color-var     : --fc-time-future-color;
+$_time-future-text-color-var: --fc-time-future-text-color;
+
+
+//$-var for the different (bg-)color and text-color
+$time-past-color       : var(#{$_time-past-color-var});
+$time-past-text-color  : var(#{$_time-past-text-color-var});
+
+$time-now-color        : var(#{$_time-now-color-var});
+$time-now-text-color   : var(#{$_time-now-text-color-var});
+
+$time-future-color     : var(#{$_time-future-color-var});
+$time-future-text-color: var(#{$_time-future-text-color-var});
+
+
+
+/**********************************************************
+Application color
+Defaults is = DALO color in "Forsvarsministeriets koncernfælles Designmanual 2018"
+Can be changed by mixin application-base-color( new-color )
+in src/_fcoo-color-mixin.scss
+**********************************************************/
+$fcoo-app-default-base-color     : #3f5b58;  //DALO color in "Forsvarsministeriets koncernfælles Designmanual 2018"
+$fcoo-app-default-base-text-color: #ffffff;
+
+
+$fcoo-app-base-color     : var(--fcoo-app-base-color);
+$fcoo-app-base-text-color: var(--fcoo-app-base-text-color);
+

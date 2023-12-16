@@ -19,9 +19,34 @@ This packages contains JS and SCSS variables defining the different colors and a
 
 To include the variables and functions in a SCSS-file add
 
-    @import "../bower-components/fcoo-colors/src/fcoo-colors-mixin";
+    @import "../bower-components/fcoo-colors/src/fcoo-colors-include";
 
 
+
+### chroma.js
+Include [chroma.js](https://github.com/gka/chroma.js) to adjust colors
+
+
+### "Time" colors
+
+Includes scss-variables, css-var, scss-functions and css-classes for colors representing the past, the present (now), and the future.
+
+See `src/fcoo-colors.scss` for details
+ 
+### FCOO Application Base Color 
+
+Includes scss-variables, css-var, scss-functions and css-classes for the basic color for FCOO Web Applications.
+
+By default it is <span style="background-color:#3f5b58; color: white">DALO color in "Forsvarsministeriets koncernfælles Designmanual 2018"</span> 
+
+See `src/fcoo-colors.scss` for details
+
+### Methods
+
+    window.fcoo.setRootVar(id, value)   //Sets :root {--id: value}
+    window.fcoo.getRootVar(id)          //Gets value form :root {id: value}
+
+    window.fcoo.color.setApplicationBaseColor(baseColor) //Sets new value for FCOO Application Base Color    
 
 ## Installation
 ### bower
@@ -33,7 +58,7 @@ http://FCOO.github.io/fcoo-colors/demo/
 ## Usage
 
 ###In SCSS-files
-    @import "../bower-components/fcoo-colors/src/fcoo-colors-mixin";
+    @import "../bower-components/fcoo-colors/src/fcoo-colors-include";
 
     .color-pink {
         background-color: fc-get-color($fc-pink);
@@ -54,10 +79,10 @@ http://FCOO.github.io/fcoo-colors/demo/
     window.fcoo.color.defaultOrder      // = ["blue", "red", "green", "yellow", "gray", "purple", "pink", "cyan", "orange"];
 
     window.fcoo.color.getColor("blue")  //Return "#123456"
-    window.fcoo.color.getColor(2); //Same as getColor("green")
+    window.fcoo.color.getColor(2);      //Same as getColor("green")
 
-    window.fcoo.color.getColorRGB("blue")   //Return {red:NUMBER, green:NUMBER, blue:NUMBER, alpha:NUMBER}
-    window.fcoo.color.getColorRGBArray("blue")   //Return [red, green, blue, alpha]
+    window.fcoo.color.getColorRGB("blue")      //Return {red:NUMBER, green:NUMBER, blue:NUMBER, alpha:NUMBER}
+    window.fcoo.color.getColorRGBArray("blue") //Return [red, green, blue, alpha]
 
 
     window.fcoo.color.getDeltaColor("blue", 3); //Return "blue" 3 gradiants darker that the default gradiant
@@ -72,7 +97,7 @@ http://FCOO.github.io/fcoo-colors/demo/
 ## Copyright and License
 This plugin is licensed under the [MIT license](https://github.com/FCOO/fcoo-colors/LICENSE).
 
-Copyright (c) 2021 [FCOO](https://github.com/FCOO)
+Copyright (c) 2023 [FCOO](https://github.com/FCOO)
 
 ## Contact information
 

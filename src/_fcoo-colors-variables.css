@@ -1,0 +1,48 @@
+/**********************************************************
+	fcoo-colors-variables.scss,
+
+	https://github.com/FCOO/fcoo-colors
+	https://github.com/FCOO
+**********************************************************/
+/**********************************************************
+The color scheme is from LinkedIn and shown in linkedin-palette-screen.pdf
+**********************************************************/
+/**********************************************************
+Color for time = tree colors for the past, now, and the future
+
+
+
+Skal bruge
+@function _best_contrast( $color ){
+    @return ch-best-color-contrast($base: $color, $colors: (#fff, #000), $tolerance: 0);
+}
+til at finde text-color for de tre tids-klasser
+**********************************************************/
+:root {
+  --the-name: #FF1234;
+  --fc-time-past-color: #ff0000;
+}
+
+/*
+:root {
+    --jbn-time-past-color     : #7ABAE1;
+    --jbn-time-past-bg-color  : #7ABAE1; //TODO - Perhaps a lighter version
+
+    --jbn-time-now-color      : darkgreen;
+    --jbn-time-now-bg-color   : lightgreen;
+
+    --jbn-time-future-color   : #4D72B8;
+    --jbn-time-future-bg-color: #4D72B8; //TODO - Perhaps a lighter version
+}
+
+.time-past-color      { color           : $time-past-color     }
+.time-past-bg-color   { background-color: $time-past-bg-color  }
+
+.time-now-color       { color           : $time-now-color      }
+.time-now-bg-color    { background-color: $time-now-bg-color   }
+
+.time-future-color    { color           : $time-future-color   }
+.time-future-bg-color { background-color: $time-future-bg-color}
+*/
+
+/*# sourceMappingURL=_fcoo-colors-variables.css.map */
