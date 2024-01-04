@@ -1,0 +1,67 @@
+/***********************************************
+    fcoo-colors.scss,
+
+    (c) 2023, FCOO
+
+    https://github.com/fcoo/fcoo-colors
+    https://github.com/fcoo
+
+
+************************************************/
+
+//COLOR-HELPER
+@import "../bower_components/sass-color-helpers/stylesheets/color-helpers";
+
+//LEAFLET-BOOTSTRAP-MARKER-MIXIN - mixin to create colors for marker (bsMarker)
+@import "../bower_components/leaflet-bootstrap-marker-mixin/dist/leaflet-bootstrap-marker-mixin";
+
+//LEAFLET-POLYLINE-MIXIN - mixin to create colors for polyline and polygon
+@import "../bower_components/leaflet-polyline-mixin/dist/leaflet-polyline-mixin";
+
+
+//FCOO-COLORS-VARIABLES and FCOO-COLORS-MIXIN
+@import "../src/fcoo-colors-variables";
+@import "../src/fcoo-colors-mixin";
+
+/**********************************************************
+Color for time = tree colors for the past, now, and the future
+**********************************************************/
+:root {
+    #{$_time-past-color-var}        : #{$time-past-color-value};
+    #{$_time-past-text-color-var}   : #{$time-past-text-color-value};
+
+    #{$_time-now-color-var}         : #{$time-now-color-value};
+    #{$_time-now-text-color-var}    : #{$time-now-text-color-value};
+
+    #{$_time-future-color-var}      : #{$time-future-color-value};
+    #{$_time-future-text-color-var} : #{$time-future-text-color-value};
+}
+
+
+.time-past-text-color   { color           : $time-past-text-color   }
+.time-past-color        { background-color: $time-past-color        }
+
+.time-now-text-color    { color           : $time-now-text-color    }
+.time-now-color         { background-color: $time-now-color         }
+
+.time-future-text-color { color           : $time-future-text-color }
+.time-future-color      { background-color: $time-future-color      }
+
+
+
+/**********************************************************
+Application color
+Defaults is = DALO color in "Forsvarsministeriets koncernfælles Designmanual 2018"
+Can be changed by mixin application-base-color( new-color )
+in src/_fcoo-color-mixin.scss
+**********************************************************/
+:root {
+    --_fcoo-default-app-base-color     : #{$fcoo-app-default-base-color};
+    --fcoo-app-base-color              : var(--_fcoo-app-base-color, var(--_fcoo-default-app-base-color));
+
+    --_fcoo-default-app-base-text-color: #{$fcoo-app-default-base-text-color};
+    --fcoo-app-base-text-color         : var(--_fcoo-app-base-text-color, var(--_fcoo-default-app-base-text-color));
+}
+
+.fcoo-app-base-text-color { color           : $fcoo-app-base-text-color }
+.fcoo-app-base-color      { background-color: $fcoo-app-base-color      }

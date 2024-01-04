@@ -9,25 +9,47 @@
 	<meta name='copyright' content='FCOO'>
 	<meta name='owner' content='FCOO'>
 
-  <link  href="bower_components.css" rel="stylesheet">	
+  <!-- <link  href="bower_components.css" rel="stylesheet">  -->
+  <link  href="../src/fcoo-colors.css" rel="stylesheet">	
   <link  href="demo.css" rel="stylesheet">	
   <style>
+        body {
+            color: var(--fcoo-app-base-text-color);
+            background-color: var(--fcoo-app-base-color);
+        }
         div {
-            width: 100px; height: 50px;
+            width: 200px; height: 50px;
+            text-align: center;
+            padding-top: 20px;
+            border: 1px solid var(--fcoo-app-base-text-color);
+            cursor: pointer;
         }
     </style>
 </head>
 
 <body>
+    <h1>Click n a colormto change application base color = body background-color</h1>
     <div class="color-pink">color-pink</div>
     <div class="color-blue-3">color-blue-3</div>
     <div class="color-yellow-8">color-yellow-8</div>
+    <div class="time-past-color time-past-text-color">Past</div>
+    <div class="time-now-color time-now-text-color">Now</div>
+    <div class="time-future-color time-future-text-color">Future</div>
+    <div class="fcoo-app-base-text-color fcoo-app-base-color">fcoo-app-base-color</div>
 
 	
 
+	<script src="bower_components.js"></script>
 	<script src="../src/fcoo-colors.js"></script>
 	<script>
-
+    console.log( window.fcoo.getRootVar('--_fcoo-default-app-base-color') );
+    $('body').on('click', () => window.fcoo.color.setApplicationBaseColor( window.fcoo.getRootVar('--_fcoo-default-app-base-color') ) );
+    $('body > div').each( (index, elem) => {
+        $(elem).on('click', () => {
+            window.fcoo.color.setApplicationBaseColor( $(elem).css('background-color') );
+            return false;
+        });            
+    });        
 	</script>
 </body>
 </html>

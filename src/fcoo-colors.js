@@ -6,6 +6,8 @@
 	https://github.com/FCOO/fcoo-colors
 	https://github.com/FCOO
 
+    Constants and methods to name, get and modify different colors used by FCOO Web Applications
+
 ****************************************************************************/
 
 (function ($, window/*, document, undefined*/) {
@@ -15,7 +17,32 @@
     var ns = window.fcoo = window.fcoo || {},
         nsColor = ns.color = ns.color || {};
 
+    //nsColor.colorNames = {id}{da:STRING, en:STRING}
+    nsColor.colorNames = {
+        blue    : {da: 'blå',    en: 'blue'     },
+        purple  : {da: 'lilla',  en: 'purple'   },
+        red     : {da: 'rød',    en: 'red'      },
+        orange  : {da: 'orange', en: 'orange'   },
+        cyan    : {da: 'cyan',   en: 'cyan'     },
+        yellow  : {da: 'Gul',    en: 'yellow'   },
+        pink    : {da: 'pink',   en: 'pink'     },
+        green   : {da: 'grøn',   en: 'green'    },
+        gray    : {da: 'grå',    en: 'gray'     }
+        };
 
+    //nsColor.colorList  = []{id, name: {da:STRING, en:STRING}} ordred by nsColor.defaultOrder
+    nsColor.colorList  = [];
+
+    $.each(nsColor.defaultOrder, function(index, colorId){
+        nsColor.colorList.push({
+            id  : colorId,
+            name: nsColor.colorNames[colorId]
+        });
+    });
+
+
+    //The color scheme is from LinkedIn and shown in linkedin-palette-screen.pdf
+    //nsColor.colorArray = The colors defined in linkedin-palette-screen.pdf = [gradiant][color]. Eg. colorArray[3, 4] = gradiant 3 of orange
     nsColor.colorArray = [
         //0:Blue    1:Purple    2:Red      3:Orange   4:Cyan     5:Yellow   6:Pink     7:Green    8:Gray
         ['#CFEDFB', '#EBE4FF', '#FFE0DA', '#FFE7BB', '#D2ECEB', '#FFF2B6', '#FFDFF2', '#E0F4BE', '#E6E9EC'],
@@ -31,11 +58,11 @@
 
     var colorName2Index = ['blue', 'purple', 'red', 'orange', 'cyan', 'yellow', 'pink', 'green', 'gray'];
 
-
     nsColor.defaultGradient = 4;
     nsColor.defaultOrder    = ["blue", "red", "green", "yellow", "gray", "purple", "pink", "cyan", "orange"];
 
 
+    //Methods to get the value of different color-names and gradiants.
     nsColor.getColor = function(color, gradient, fromSortedList){
         var colorIndex = typeof color == 'string' ? colorName2Index.indexOf(color) : color;
         return nsColor.getColorList(fromSortedList, gradient)[colorIndex];
@@ -77,5 +104,75 @@
             result = nsColor.colorArray[gradient];
         return result;
     };
+
+
+    /****************************************************************************
+    Using chroma.js (https://github.com/gka/chroma.js)
+    Create js-versions of sass functions darken, lighten, tint and shade
+
+    chromaBestContrast( color, contrastColors = ['#000000', '#ffffff'] )
+    returns the color from contrastColors with the best contrast
+    ****************************************************************************/
+
+    //HSL manipulators - from https://github.com/gka/chroma.js/issues/217
+    const lighten = (color, hslPercent) => color.set("hsl.l", color.get("hsl.l") + hslPercent);
+    const darken = (color, hslPercent) => lighten(color, -hslPercent);
+    const sassLightenDarken = (color, percent, dark) => {
+        let  hslPercent = window.numeral(percent).value();
+        if (hslPercent === null)
+            hslPercent = 1;
+        color = window.chroma(color);
+        return dark ? darken(color, hslPercent).hex() : lighten(color, hslPercent).hex();
+    };
+
+    nsColor.sassLighten = ( color, percent ) => sassLightenDarken( color, percent );
+    nsColor.sassDarken  = ( color, percent ) => sassLightenDarken( color, percent, true );
+
+    const mix = (color1, color2, percent) => {
+        let ratio = window.numeral(percent).value();
+        if (ratio === null)
+            ratio = 1;
+        return window.chroma.mix(color1, color2, ratio);
+    };
+
+    nsColor.sassTintColor  = (color, weight) => mix( color, 'white', weight );
+    nsColor.sassShadeColor = (color, weight) => mix( color, 'black', weight );
+
+    //chromaBestContrast( color, contrastColors = ['#000000', '#ffffff']
+    nsColor.chromaBestContrast = ( color, contrastColors = ['#000000', '#ffffff']) => {
+        contrastColors = $.isArray( contrastColors ) ? contrastColors : [contrastColors];
+        let bestContrast = 0, result;
+        contrastColors.forEach( (textColor) => {
+            const contrast = window.chroma.contrast(color, textColor);
+            if (contrast > bestContrast){
+                bestContrast = contrast;
+                result = textColor;
+            }
+        });
+        return window.chroma(result);
+    };
+
+    /****************************************************************************
+    setRootVar(id, value)
+    getRootVar(id)
+    setApplicationBaseColor(baseColor)
+    ****************************************************************************/
+    const adjustId = (id) => id.slice(0, 2) == '--' ? id : '--'+id;
+    const root = document.querySelector(':root');
+
+    ns.setRootVar = (id, value) => {
+        root.style.setProperty(adjustId(id), value);
+    };
+
+    ns.getRootVar = (id) => {
+        return getComputedStyle(root).getPropertyValue( adjustId(id) );
+    };
+
+    nsColor.setApplicationBaseColor = (baseColor) => {
+        baseColor = window.chroma(baseColor);
+        ns.setRootVar('--_fcoo-app-base-color', baseColor.hex() );
+        ns.setRootVar('--_fcoo-app-base-text-color', nsColor.chromaBestContrast(baseColor).hex() );
+    };
+
 
 }(jQuery, this, document));
