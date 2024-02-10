@@ -30,6 +30,10 @@
         gray    : {da: 'grå',    en: 'gray'     }
         };
 
+    var colorName2Index = ['blue', 'purple', 'red', 'orange', 'cyan', 'yellow', 'pink', 'green', 'gray'];
+    nsColor.defaultGradient = 4;
+    nsColor.defaultOrder    = ["blue", "red", "green", "yellow", "gray", "purple", "pink", "cyan", "orange"];
+
     //nsColor.colorList  = []{id, name: {da:STRING, en:STRING}} ordred by nsColor.defaultOrder
     nsColor.colorList  = [];
 
@@ -55,11 +59,6 @@
         ['#005E93', '#573B93', '#A40F1C', '#AF4104', '#00727D', '#AA7D00', '#B10C5C', '#3B7511', '#434649'],
         ['#004471', '#452B7F', '#88001A', '#903000', '#005C69', '#8B6700', '#870044', '#295A10', '#303336']
     ];
-
-    var colorName2Index = ['blue', 'purple', 'red', 'orange', 'cyan', 'yellow', 'pink', 'green', 'gray'];
-
-    nsColor.defaultGradient = 4;
-    nsColor.defaultOrder    = ["blue", "red", "green", "yellow", "gray", "purple", "pink", "cyan", "orange"];
 
 
     //Methods to get the value of different color-names and gradiants.

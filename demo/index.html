@@ -28,7 +28,7 @@
 </head>
 
 <body>
-    <h1>Click n a colormto change application base color = body background-color</h1>
+    <h1>Click no a color to change application base color = body background-color</h1>
     <div class="color-pink">color-pink</div>
     <div class="color-blue-3">color-blue-3</div>
     <div class="color-yellow-8">color-yellow-8</div>
@@ -43,7 +43,7 @@
 	<script src="../src/fcoo-colors.js"></script>
 	<script>
     
-    console.log(window.chroma);
+    console.log(window.chroma.mix(111, 222).hex() );
     console.log( window.fcoo.getRootVar('--_fcoo-default-app-base-color') );
     $('body').on('click', () => window.fcoo.color.setApplicationBaseColor( window.fcoo.getRootVar('--_fcoo-default-app-base-color') ) );
     $('body > div').each( (index, elem) => {
