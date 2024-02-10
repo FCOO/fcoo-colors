@@ -42,6 +42,8 @@
 	<script src="bower_components.js"></script>
 	<script src="../src/fcoo-colors.js"></script>
 	<script>
+    
+    console.log(window.chroma);
     console.log( window.fcoo.getRootVar('--_fcoo-default-app-base-color') );
     $('body').on('click', () => window.fcoo.color.setApplicationBaseColor( window.fcoo.getRootVar('--_fcoo-default-app-base-color') ) );
     $('body > div').each( (index, elem) => {
