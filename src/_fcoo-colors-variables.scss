@@ -89,7 +89,25 @@ in src/_fcoo-color-mixin.scss
 $fcoo-app-default-base-color     : #3f5b58;  //DALO color in "Forsvarsministeriets koncernfælles Designmanual 2018"
 $fcoo-app-default-base-text-color: #ffffff;
 
-
 $fcoo-app-base-color     : var(--fcoo-app-base-color);
 $fcoo-app-base-text-color: var(--fcoo-app-base-text-color);
+
+
+/**********************************************************
+Environmental colors
+Defines a number of colors and $-variables for different
+parts of the environmental. Eq sky, cloud, sea etc.
+**********************************************************/
+$fcoo-env-color-list: (
+    space   : #28161C,
+    sky     : #50B8E7,  //From https://www.color-hex.com/color-palette/22229. Alt. = deepskyblue,
+    cloud   : #DDE7EE,  //From https://www.color-hex.com/color-palette/5537
+    sea     : #064273,  //From https://www.color-hex.com/color-palette/3497
+    ice     : #BAF2EF,  //From https://www.color-hex.com/color-palette/3098
+    snow    : #FFFAFA,  //css show-color
+    land    : #4E341D,  //From https://www.color-hex.com/color-palette/60344
+    seabed  : #351B04   //From https://www.color-hex.com/color-palette/60344
+);
+
+
 

@@ -65,3 +65,20 @@ in src/_fcoo-color-mixin.scss
 
 .fcoo-app-base-text-color { color           : $fcoo-app-base-text-color }
 .fcoo-app-base-color      { background-color: $fcoo-app-base-color      }
+
+
+
+/**********************************************************
+Environmental color
+**********************************************************/
+:root {
+    @each $env,$color in $fcoo-env-color-list{
+        --fcoo-env-#{$env}-color: #{$color};
+    }
+}
+
+@each $env,$color in $fcoo-env-color-list{
+    $var: var(--fcoo-env-#{$env}-color);
+    .fcoo-env-#{$env}-text-color { color           : $var }
+    .fcoo-env-#{$env}-color      { background-color: $var }
+}

@@ -59,6 +59,11 @@ Can be changed by mixin application-base-color( new-color )
 in src/_fcoo-color-mixin.scss
 **********************************************************/
 /**********************************************************
+Environmental colors
+Defines a number of colors and $-variables for different
+parts of the environmental. Eq sky, cloud, sea etc.
+**********************************************************/
+/**********************************************************
     fcoo-colors-mixin.scss
 
 	https://github.com/FCOO/fcoo-colors
@@ -132,4 +137,82 @@ in src/_fcoo-color-mixin.scss
 
 .fcoo-app-base-color {
   background-color: var(--fcoo-app-base-color);
+}
+
+/**********************************************************
+Environmental color
+**********************************************************/
+:root {
+  --fcoo-env-space-color: #28161C;
+  --fcoo-env-sky-color: #50B8E7;
+  --fcoo-env-cloud-color: #DDE7EE;
+  --fcoo-env-sea-color: #064273;
+  --fcoo-env-ice-color: #BAF2EF;
+  --fcoo-env-snow-color: #FFFAFA;
+  --fcoo-env-land-color: #4E341D;
+  --fcoo-env-seabed-color: #351B04;
+}
+
+.fcoo-env-space-text-color {
+  color: var(--fcoo-env-space-color);
+}
+
+.fcoo-env-space-color {
+  background-color: var(--fcoo-env-space-color);
+}
+
+.fcoo-env-sky-text-color {
+  color: var(--fcoo-env-sky-color);
+}
+
+.fcoo-env-sky-color {
+  background-color: var(--fcoo-env-sky-color);
+}
+
+.fcoo-env-cloud-text-color {
+  color: var(--fcoo-env-cloud-color);
+}
+
+.fcoo-env-cloud-color {
+  background-color: var(--fcoo-env-cloud-color);
+}
+
+.fcoo-env-sea-text-color {
+  color: var(--fcoo-env-sea-color);
+}
+
+.fcoo-env-sea-color {
+  background-color: var(--fcoo-env-sea-color);
+}
+
+.fcoo-env-ice-text-color {
+  color: var(--fcoo-env-ice-color);
+}
+
+.fcoo-env-ice-color {
+  background-color: var(--fcoo-env-ice-color);
+}
+
+.fcoo-env-snow-text-color {
+  color: var(--fcoo-env-snow-color);
+}
+
+.fcoo-env-snow-color {
+  background-color: var(--fcoo-env-snow-color);
+}
+
+.fcoo-env-land-text-color {
+  color: var(--fcoo-env-land-color);
+}
+
+.fcoo-env-land-color {
+  background-color: var(--fcoo-env-land-color);
+}
+
+.fcoo-env-seabed-text-color {
+  color: var(--fcoo-env-seabed-color);
+}
+
+.fcoo-env-seabed-color {
+  background-color: var(--fcoo-env-seabed-color);
 }

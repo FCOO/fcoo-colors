@@ -16,28 +16,87 @@
         body {
             color: var(--fcoo-app-base-text-color);
             background-color: var(--fcoo-app-base-color);
+            display: flex;
+            flex-directior: row;
+            
         }
-        div {
+        h1 {
+            width: 300px;
+        }
+        div.col {
+            margin-left: 50px;
+        }            
+        div.standard {
             width: 200px; height: 50px;
             text-align: center;
             padding-top: 20px;
             border: 1px solid var(--fcoo-app-base-text-color);
             cursor: pointer;
         }
+        div.standard2 {
+            width: 200px; height: 50px;
+            text-align: center;
+            padding-top: 0px;
+            border: 1px solid var(--fcoo-app-base-text-color);
+        }
+        div.env {
+            width: 120px;
+            text-align: center;
+            padding-top: 0px;
+        }
+        div.env-1-3 { height: 40px; }
+        div.env-2-3 { height: 80px; }
+        div.env-1-2 { height: 60px; }
+        div.env-45-10 { height: 54px; }
+        div.env-10-10 { height: 12px; }
     </style>
 </head>
 
 <body>
+    <div class="col">
     <h1>Click no a color to change application base color = body background-color</h1>
-    <div class="color-pink">color-pink</div>
-    <div class="color-blue-3">color-blue-3</div>
-    <div class="color-yellow-8">color-yellow-8</div>
-    <div class="time-past-color time-past-text-color">Past</div>
-    <div class="time-now-color time-now-text-color">Now</div>
-    <div class="time-future-color time-future-text-color">Future</div>
-    <div class="fcoo-app-base-text-color fcoo-app-base-color">fcoo-app-base-color</div>
+    <div class="standard color-pink">color-pink</div>
+    <div class="standard color-blue-3">color-blue-3</div>
+    <div class="standard color-yellow-8">color-yellow-8</div>
+    <div class="standard time-past-color time-past-text-color">Past</div>
+    <div class="standard time-now-color time-now-text-color">Now</div>
+    <div class="standard time-future-color time-future-text-color">Future</div>
+    <div class="standard fcoo-app-base-text-color fcoo-app-base-color">fcoo-app-base-color</div>
+    </div><div class="col">        
+    <h1>FCOO-ENV-COLORS</h1>
+    <div class="standard2 fcoo-env-space-color">fcoo-env-space-color</div>
+    <div class="standard2 fcoo-env-sky-color">fcoo-env-sky-color</div>
+    <div class="standard2 fcoo-env-cloud-color" style="color:black">fcoo-env-cloud-color</div>
+    <div class="standard2 fcoo-env-sea-color">fcoo-env-sea-color</div>
+    <div class="standard2 fcoo-env-ice-color" style="color:black">fcoo-env-ice-color</div>
+    <div class="standard2 fcoo-env-snow-color" style="color:black">fcoo-env-snow-color</div>
+    <div class="standard2 fcoo-env-land-color">fcoo-env-land-color</div>
+    <div class="standard2 fcoo-env-seabed-color">fcoo-env-seabed-color</div>
+    </div><div class="col">        
+    <h1>FCOO-ENV-COLORS EXAMPLE</h1>
+    <h3>sky-sea</h3>
+    <div class="env env-1-2 fcoo-env-sky-color"></div>
+    <div class="env env-1-2 fcoo-env-sea-color"></div>
+    <br>
+    <h3>sky-sea-seabed</h3>
+    <div class="env env-1-3 fcoo-env-sky-color"></div>
+    <div class="env env-1-3 fcoo-env-sea-color"></div>
+    <div class="env env-1-3 fcoo-env-seabed-color"></div>
 
-	
+    <h3>sky-land</h3>
+    <div class="env env-1-2 fcoo-env-sky-color"></div>
+    <div class="env env-1-2 fcoo-env-land-color"></div>
+
+    <h3>sky-ice-sea</h3>
+    <div class="env env-45-10 fcoo-env-sky-color"></div>
+    <div class="env env-10-10 fcoo-env-ice-color"></div>
+    <div class="env env-45-10 fcoo-env-sea-color"></div>
+
+    <h3>sky-snow-land</h3>
+    <div class="env env-45-10 fcoo-env-sky-color"></div>
+    <div class="env env-10-10 fcoo-env-snow-color"></div>
+    <div class="env env-45-10 fcoo-env-land-color"></div>
+	</div>
 
 	<script src="bower_components.js"></script>
 	<script src="../src/fcoo-colors.js"></script>
@@ -46,7 +105,7 @@
     console.log(window.chroma.mix(111, 222).hex() );
     console.log( window.fcoo.getRootVar('--_fcoo-default-app-base-color') );
     $('body').on('click', () => window.fcoo.color.setApplicationBaseColor( window.fcoo.getRootVar('--_fcoo-default-app-base-color') ) );
-    $('body > div').each( (index, elem) => {
+    $('body  div.standard').each( (index, elem) => {
         $(elem).on('click', () => {
             window.fcoo.color.setApplicationBaseColor( $(elem).css('background-color') );
             return false;

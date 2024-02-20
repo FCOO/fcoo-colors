@@ -41,6 +41,29 @@ By default it is <span style="background-color:#3f5b58; color: white">DALO color
 
 See `src/fcoo-colors.scss` for details
 
+### FCOO Environmental Color
+
+To illustrate different *"part"* of the environment a set of scss-variables, css-var, and css-classes are defined:
+    PART
+    space   : #28161C
+    sky     : #50B8E7
+    cloud   : #DDE7EE
+    sea     : #064273
+    ice     : #BAF2EF
+    snow    : #FFFAFA
+    land    : #4E341D
+    seabed  : #351B04
+  
+    :root {
+        --fcoo-env-PART-color: ...;
+    }
+    .fcoo-env-PART-color     { background-color: var(--fcoo-env-PART-color); }
+    .fcoo-env-sky-text-color { color           : var(--fcoo-env-PART-color); }
+
+Example: 
+<span class="fcoo-env-sea-color" style="padding: 10px; background-color:#064273; color: white">class="fcoo-env-sea-color"</span>
+
+
 ### Methods
 
     window.fcoo.setRootVar(id, value)   //Sets :root {--id: value}
