@@ -26,6 +26,9 @@ To include the variables and functions in a SCSS-file add
 ### chroma.js
 Include [chroma.js](https://github.com/gka/chroma.js) to adjust colors
 
+#### ** NOTE **
+Since version 2.5 the chroma.js code is located in `dist/chroma.cjs` Current version of `grunt-fcoo-grunt-plugin` can't handle `*.cjs`. Therefore the current version of chroma.js is fixed to 2.4
+
 
 ### "Time" colors
 
