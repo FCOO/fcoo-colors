@@ -50,7 +50,7 @@ Color for time = tree colors for the past, now, and the future
 $time-past-color-value       : #EADCC1;
 $time-past-text-color-value  : ch-best-color-contrast($base: $time-past-color-value, $colors: (#fff, #000), $tolerance: 0);
 
-$time-now-color-value        : #3B7511;
+$time-now-color-value        : #BDD9BF; //Tea green //Original = #3B7511;
 $time-now-text-color-value   : ch-best-color-contrast($base: $time-now-color-value, $colors: (#fff, #000), $tolerance: 0);
 
 $time-future-color-value     : #94B5C2;

@@ -88,8 +88,8 @@ Color for time = tree colors for the past, now, and the future
 :root {
   --fc-time-past-color: #EADCC1;
   --fc-time-past-text-color: #000;
-  --fc-time-now-color: #3B7511;
-  --fc-time-now-text-color: #fff;
+  --fc-time-now-color: #BDD9BF;
+  --fc-time-now-text-color: #000;
   --fc-time-future-color: #94B5C2;
   --fc-time-future-text-color: #000;
 }
