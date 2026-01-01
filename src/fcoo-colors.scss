@@ -47,6 +47,10 @@ Color for time = tree colors for the past, now, and the future
 .time-future-text-color { color           : $time-future-text-color }
 .time-future-color      { background-color: $time-future-color      }
 
+//Special classes to have text-color as bg-color for icons
+.time-past-color-as-text-color   { color: $time-past-color        }
+.time-now-color-as-text-color    { color: $time-now-color         }
+.time-future-color-as-text-color { color: $time-future-color      }
 
 
 /**********************************************************
